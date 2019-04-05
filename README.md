@@ -9,7 +9,7 @@ This repo has the following folder structure:
 * [examples](https://github.com/devopsplant/terraform-jenkins/tree/master/examples): This folder contains 
   examples of how to use the module.
 
-## components will be created when by using this module.
+## components will be created by using this module.
 
 * EC2 instance with Jenkins installed on it and configured  to run on boot (Optionally can have Jenkins and the system Updated automatically)
 * EBS volume to store the Jenkins data
