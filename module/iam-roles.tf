@@ -17,3 +17,9 @@ resource "aws_iam_role" "this" {
 }
 EOF
 }
+
+
+resource "aws_iam_instance_profile" "this" {
+  name = "${var.role}EC2Profile"
+  role = "${aws_iam_role.this.name}"
+}
