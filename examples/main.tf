@@ -1,6 +1,5 @@
 module "jenkins" {
   source            = "git::https://github.com/devopsplant/terraform-jenkins.git//module?ref=develop"
-  owner             = "devopsplant"
   role              = "jenkins"
   instance_type     = "t3.tiny"
   ssh_allowed_cidr  = ["0.0.0.0/0"]
@@ -11,6 +10,5 @@ module "jenkins" {
   environment       = "development"
   region            = "ap-southeast-2"
   key_name          = "jenkins"
-  webproxy_cidr     = "0.0.0.0/0"
   }
   
