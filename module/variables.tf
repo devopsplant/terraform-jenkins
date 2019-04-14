@@ -20,6 +20,7 @@ variable "vpc_id" {
   
 }
 variable "cidr_block" {
+    type = "list"
   
 }
 variable "instance_type" {
