@@ -32,3 +32,6 @@ variable "key_name" {
 variable "ssh_pub_key" {
   
 }
+variable "outbound_internet" {
+  
+}
