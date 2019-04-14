@@ -1,7 +1,7 @@
 resource "aws_security_group" "this" {
   name        = "sgp-${var.environment}-${var.region}-${var.role}"
   description = "Rules for ${var.role} EC2 instances rules"
-  vpc_id      = "${data.aws_vpc.selected.id}"
+  vpc_id      = "${data.aws_vpc.this.id}"
 }
 
 resource "aws_security_group_rule" "rule_ssh_in_cidr" {
