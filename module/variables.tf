@@ -22,4 +22,8 @@ variable "vpc_id" {
 variable "cidr_block" {
   
 }
+variable "instance_type" {
+  default = "t3.tiny"
+}
+
 

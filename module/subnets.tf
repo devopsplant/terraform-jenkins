@@ -8,7 +8,6 @@ resource "aws_subnet" "this" {
 
   tags {
     Name          = "sbn-${var.environment}-${var.region}-${var.role}-${count.index}"
-    Project       = "${var.project}"
     Tracking      = "${upper(random_string.tracking.result)}"
   }
 }

@@ -15,14 +15,14 @@ data "aws_ami" "this" {
 # fatch all the availability zones and store them here
 data "aws_availability_zones" "available" {}
 #The file which have the Jenkins installation and user custom configuration in the EC2 instance
-#data "template_file" "user-data-jenkins" {
-#  template = "${file("${path.module}/user-data-jenkins.sh")}"
-#  vars {
-#    name        = "jenkins"
-#    environment = "${var.environment}"
-#    region      = "${var.region}"
-#  }
-#}
+data "template_file" "user-data-jenkins" {
+  template = "${file("${path.module}/user-data-jenkins.sh")}"
+  vars {
+    name        = "jenkins"
+    environment = "${var.environment}"
+    region      = "${var.region}"
+  }
+}
 ## EC2 Key pair
 resource "aws_key_pair" "this" {
   key_name   = "jenkins"
@@ -62,12 +62,6 @@ resource "aws_autoscaling_group" "this" {
   tag {
     key                 = "Name"
     value               = "ec2-${var.environment}-${var.role}-${upper(random_string.tracking.result)}"
-    propagate_at_launch = "true"
-  }
-
-  tag {
-    key                 = "Project"
-    value               = "${var.project}"
     propagate_at_launch = "true"
   }
 
