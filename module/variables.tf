@@ -2,7 +2,7 @@ variable "environment" {
   default = "development"
 }
 variable "region" {
-  default = "ap-southeast-2"
+  default = "us-east-1"
 }
 variable "ssh_allowed_cidr" {
     type = "list"
