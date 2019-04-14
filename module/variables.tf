@@ -7,6 +7,8 @@ variable "region" {
 variable "ssh_allowed_cidr" {
     type = "list"
     description = "The IP ranges which will be allowed to SSH to the Jenkins "
+    default = ["0.0.0.0/0"]
+
 }
 variable "allowed_cidr" {
     type = "list"
