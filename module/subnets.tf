@@ -10,7 +10,7 @@ data "aws_subnet_ids" "this" {
 resource "aws_subnet" "this" {
   count             = "${length(data.aws_availability_zones.available.names)}"
   vpc_id            = "${data.aws_vpc.this.id}"
-  cidr_block        = "${cidrsubnet(data.aws_vpc.this.cidr_block, 4, "${data.aws_availability_zones.available.names[count.index]}")}"
+  cidr_block        = "${cidrsubnet(data.aws_vpc.this.cidr_block, 4, data.aws_availability_zones.available.names[count.index])}"
   availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
 
   tags {
