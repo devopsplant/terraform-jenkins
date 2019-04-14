@@ -1,5 +1,5 @@
 variable "environment" {
-  default = "development"
+  default = "Dev"
 }
 variable "region" {
   default = "ap-southeast-2"
