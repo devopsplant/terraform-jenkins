@@ -48,9 +48,37 @@ resource "aws_launch_configuration" "this" {
     create_before_destroy = true
   }
 
-  ebs_block_device {
-    device_name = "/dev/xvdb"
-    volume_type = "standard"
-    volume_size = 100
+
+}
+resource "aws_autoscaling_group" "this" {
+  name                 = "asg-${var.environment}-${var.role}-${random_string.tracking.result}"
+  availability_zones   = ["${data.aws_availability_zones.available.names}"]
+  launch_configuration = "${aws_launch_configuration.this.name}"
+  desired_capacity     = 1
+  min_size             = 1
+  max_size             = 1
+  vpc_zone_identifier  = ["${aws_subnet.this.*.id}"]
+
+  tag {
+    key                 = "Name"
+    value               = "ec2-${var.environment}-${var.role}-${upper(random_string.tracking.result)}"
+    propagate_at_launch = "true"
+  }
+
+  tag {
+    key                 = "Owner"
+    value               = "${var.owner}"
+    propagate_at_launch = "true"
+  }
+
+  tag {
+    key                 = "Project"
+    value               = "${var.project}"
+    propagate_at_launch = "true"
+  }
+
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
