@@ -16,7 +16,7 @@ data "aws_ami" "this" {
 data "aws_availability_zones" "available" {}
 #The file which have the Jenkins installation and user custom configuration in the EC2 instance
 data "template_file" "user-data-jenkins" {
-  template = "${file("${path.module}/user-data-jenkins.sh")}"
+  template = "${file("user-data-jenkins.sh")}"
   vars {
     name        = "jenkins"
     environment = "${var.environment}"
