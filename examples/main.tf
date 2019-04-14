@@ -1,5 +1,5 @@
 module "jenkins" {
-  source            = "https://github.com/devopsplant/terraform-jenkins/tree/develop/module/"
+  source            = "git::https://github.com/devopsplant/terraform-jenkins.git"
   project           = "jenkins"
   owner             = "devopsplant"
   provisioned_by    = "terraform"
