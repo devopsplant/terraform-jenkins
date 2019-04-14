@@ -37,7 +37,7 @@ resource "random_string" "tracking" {
 
 resource "aws_launch_configuration" "this" {
   name_prefix          = "${var.role}-${var.environment}-${random_string.tracking.result}"
-  image_id             = "${data.aws_ami.ecs_ami.image_id}"                                 
+  image_id             = "${data.aws_ami.this.image_id}"                                 
   instance_type        = "${var.instance_type}"
   iam_instance_profile = "${aws_iam_instance_profile.this.name}"
   key_name             = "${aws_key_pair.this.key_name}"
