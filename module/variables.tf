@@ -8,6 +8,7 @@ variable "ssh_allowed_cidr" {
     description = "The IP ranges which will be allowed to SSH to the Jenkins "
 }
 variable "allowed_cidr" {
+    type = "list"
     description = "The IP ranges which will be allowed to use Jenkins from the WebInterface"
 }
 variable "role" {
