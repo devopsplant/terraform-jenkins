@@ -11,9 +11,11 @@ variable "ssh_allowed_cidr" {
 variable "allowed_cidr" {
     type = "list"
     description = "The IP ranges which will be allowed to use Jenkins from the WebInterface"
+    default = ["0.0.0.0/0"]
+
 }
 variable "role" {
-    default = "JN"
+    default = "Jenkins"
   description = "The main service of the module"
 }
 variable "vpc_id" {
@@ -21,6 +23,7 @@ variable "vpc_id" {
 }
 variable "cidr_block" {
     type = "list"
+    default = ["0.0.0.0/0"]
   
 }
 variable "instance_type" {

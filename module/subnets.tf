@@ -1,8 +1,12 @@
 ## Creating subnets to lunch be used by the EC2 instance.
 # We want as many subnets as available
+data "aws_vpc" "selected" {
+  id = "${var.vpc_id}"
+}
+
 resource "aws_subnet" "this" {
   count             = "${length(data.aws_availability_zones.available.names)}"
-  vpc_id            = "${var.vpc_id}"
+  vpc_id            = "${data.aws_vpc.selected.id}"
   cidr_block        = "${var.cidr_block[count.index]}"
   availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
 
