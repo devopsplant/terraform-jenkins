@@ -10,8 +10,8 @@ module "jenkins" {
   outbound_internet = "true"
   vpc_id            = "vpc-7022710000"
   cidr_block        = ["10.1.3.64/28", "10.1.3.80/28", "10.1.3.96/28"]
-  environment       = "cicd"
-  region            = "sydney"
+  environment       = "development"
+  region            = "ap-southeast-2"
   key_name          = "jenkins"
   webproxy_cidr     = "0.0.0.0/0"
   }
