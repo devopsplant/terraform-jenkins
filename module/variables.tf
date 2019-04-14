@@ -26,4 +26,9 @@ variable "instance_type" {
   default = "t3.tiny"
 }
 
-
+variable "key_name" {
+  description = "the Key "
+}
+variable "ssh_pub_key" {
+  
+}
