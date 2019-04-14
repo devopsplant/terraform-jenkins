@@ -5,6 +5,7 @@ variable "region" {
   default = "ap-southeast-2"
 }
 variable "ssh_allowed_cidr" {
+    type = "list"
     description = "The IP ranges which will be allowed to SSH to the Jenkins "
 }
 variable "allowed_cidr" {
