@@ -5,7 +5,7 @@ data "aws_vpc" "this" {
 
 }
 data "aws_subnet_ids" "this" {
-  vpc_id = "${var.vpc_id}"
+  vpc_id = "${data.aws_vpc.this.id}"
 }
 resource "aws_subnet" "this" {
   count             = "${length(data.aws_availability_zones.available.names)}"
