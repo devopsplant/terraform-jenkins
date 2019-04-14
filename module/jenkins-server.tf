@@ -66,12 +66,6 @@ resource "aws_autoscaling_group" "this" {
   }
 
   tag {
-    key                 = "Owner"
-    value               = "${var.owner}"
-    propagate_at_launch = "true"
-  }
-
-  tag {
     key                 = "Project"
     value               = "${var.project}"
     propagate_at_launch = "true"

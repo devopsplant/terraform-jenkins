@@ -1,8 +1,6 @@
 module "jenkins" {
   source            = "git::https://github.com/devopsplant/terraform-jenkins.git//module?ref=develop"
-  project           = "jenkins"
   owner             = "devopsplant"
-  provisioned_by    = "terraform"
   role              = "jenkins"
   instance_type     = "t3.tiny"
   ssh_allowed_cidr  = ["0.0.0.0/0"]
