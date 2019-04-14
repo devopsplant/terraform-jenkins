@@ -21,7 +21,7 @@ variable "role" {
   description = "The main service of the module"
 }
 variable "vpc_id" {
-  
+  default = ""
 }
 variable "cidr_block" {
     type = "list"
