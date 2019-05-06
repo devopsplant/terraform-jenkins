@@ -18,7 +18,7 @@ resource "aws_subnet" "this" {
     Tracking      = "${upper(random_string.tracking.result)}"
   }
 }
-resource "aws_subnet" "this" {
+resource "aws_subnet" "this1" {
   count             = "${length(var.cidr_block) == 0 ? length(var.cidr_block) : length(data.aws_availability_zones.available.names) }"
   vpc_id            = "${data.aws_vpc.this.id}"
   cidr_block        = ["${var.cidr_block}"]
