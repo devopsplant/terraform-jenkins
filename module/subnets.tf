@@ -8,7 +8,7 @@ data "aws_subnet_ids" "this" {
   vpc_id = "${data.aws_vpc.this.id}"
 }
 resource "aws_subnet" "this" {
-  count             = "${length(var.cidr_block == true ? 1 : 0)}"
+  count             = "${length(var.cidr_block) == 1 ? 1 : 0}"
   count             = "${length(data.aws_availability_zones.available.names)}"
   vpc_id            = "${data.aws_vpc.this.id}"
   cidr_block        = "${cidrsubnet(data.aws_vpc.this.cidr_block, 4, count.index * 1)}"
