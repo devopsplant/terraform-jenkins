@@ -25,7 +25,7 @@ variable "vpc_id" {
 }
 variable "cidr_block" {
     type = "list"
-    default = ["10.1.3.64/28", "10.1.3.80/28", "10.1.3.96/28"]
+    default = []
   
 }
 variable "instance_type" {
