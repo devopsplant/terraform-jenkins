@@ -25,7 +25,7 @@ variable "vpc_id" {
 }
 variable "cidr_block" {
     type = "list"
-    default = []
+    default = "${cidrsubnet(data.aws_vpc.this.cidr_block, 4, count.index * 1)}"
   
 }
 variable "instance_type" {
