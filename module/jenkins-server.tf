@@ -11,6 +11,10 @@ data "aws_ami" "this" {
     name   = "name"
     values = ["amzn*"]
   }
+    filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
 }
 # fatch all the availability zones and store them here
 data "aws_availability_zones" "available" {}
