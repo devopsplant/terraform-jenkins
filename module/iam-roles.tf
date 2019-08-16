@@ -1,6 +1,7 @@
 resource "aws_iam_role" "this" {
   name = "${var.role}EC2Role"
 
+
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
