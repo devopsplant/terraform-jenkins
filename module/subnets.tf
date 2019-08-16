@@ -14,7 +14,7 @@ resource "aws_subnet" "this" {
 
   availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
 
-  tags {
+  tags = {
     Name          = "sbn-${var.environment}-${var.region}-${var.role}-${count.index}"
     Tracking      = "${upper(random_string.tracking.result)}"
   }
